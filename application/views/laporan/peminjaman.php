@@ -15,15 +15,17 @@ target="_blank" class="btn btn-success btn-sm">Cetak PDF</a>
         <th>No</th>
         <th>Kode</th>
         <th>Nama</th>
+        <th>Telepon</th>
         <th>Tanggal</th>
         <th>Status</th>
-        <th>Aksi</th>
+        
     </tr>
     <?php $no=1; foreach($data as $d): ?>
     <tr>
         <td><?= $no++; ?></td>
         <td><?= $d->kode_peminjaman; ?></td>
         <td><?= $d->nama; ?></td>
+        <td><?= $d->telepon; ?></td>
         <td><?= $d->tanggal_pinjam; ?></td>
         <td><?= $d->status; ?></td>
     </tr>

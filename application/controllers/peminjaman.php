@@ -58,7 +58,7 @@ class peminjaman extends CI_Controller {
     {
         $bulan= $this->input->get('bulan');
 
-        $this->db->select('peminjaman.*, anggota.nama');
+        $this->db->select('peminjaman.*, anggota.nama, anggota.telepon');
         $this->db->from('peminjaman');
         $this->db->join('anggota', 'anggota.id = peminjaman.anggota_id');
 
