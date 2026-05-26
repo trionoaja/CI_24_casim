@@ -27,10 +27,27 @@
         <td><?= $d->tanggal_pinjam; ?></td>
         <td><?= $d->status; ?></td>
         <td>
+           <?php
+           $today = date('Y-m-d');
+           
+           $selisih = strtotime($today) - strtotime($d->tanggal_jatuh_tempo);
+
+           $terlambat = $selisih > 0 
+           ? floor($selisih / 86400)
+           : 0 ; 
+           ?>
+
             <?php if($d->status == 'dipinjam'): ?>
                 <a href="<?= site_url('peminjaman/kembali/'. $d->id); ?>"
                 class="btn btn-success btn-sm">
                 Kembalikan
+            </a>
+
+            <!-- tombol WA -->
+             <a href ="<?= site_url('whatsapp/kirim_notifikasi/'.$d->id); ?>"
+             class ="btn btn-warning btn-sm">
+             <i class="fab fa-whatsapp"></i>
+             Kirim WA 
             </a>
             <?php endif; ?>
         </td>
